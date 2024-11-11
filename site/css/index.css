@@ -23,6 +23,11 @@ button:hover{
     box-shadow: 2px 2px #121212;
 }
 
+/*
+
+  coisinho final do site
+
+*/
 
 .marquee {
 	margin: 0 auto;
@@ -32,9 +37,9 @@ button:hover{
 	bottom: 0;
 	left: 0;
 	padding: 0.5em;
-	background: #7b05aa;
-    border: solid 4px #121212;
-    color: #fff;
+	background: #f4d738;
+  border: solid 3px #121212;
+  color: #000;
 	right: 0;
 }
 
@@ -43,14 +48,15 @@ button:hover{
 
 */
 .marquee > span {
+  font-size: 15px;
 	display: inline-block;
 	padding-left: 100%;
 	animation: marquee 20s linear infinite;
 }
 
 .marquee span span {
-	padding-left: 3em;
-	padding-right: 3em;
+	padding-left: 1em;
+	padding-right: 2em;
 }
 
 @keyframes marquee {
@@ -60,4 +66,38 @@ button:hover{
   100% {
     transform: translate(-100%, 0);
   }
+}
+
+
+.card{
+  width: 100%;
+  height: 30vh;
+}
+
+.horizontal{
+  display: inline-flex;
+}
+
+.imagem > img{
+  margin-top: 20px;
+  margin-left: 100%;
+  width: 200px;
+  height: 200px;
+}
+
+.texto{
+  margin-top: 20px;
+  margin-left: 20px;
+  color: #000;
+  width: 50%;
+  height: 30vh;
+  background-color: #f4d738;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  border: solid 3px #121212;
+
 }
