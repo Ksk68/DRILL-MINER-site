@@ -68,36 +68,43 @@ button:hover{
   }
 }
 
-
-.card{
-  width: 100%;
-  height: 30vh;
-}
-
 .horizontal{
-  display: inline-flex;
+  justify-content: center;
+  flex-direction: row;
 }
 
-.imagem > img{
-  margin-top: 20px;
-  margin-left: 100%;
-  width: 200px;
-  height: 200px;
-}
-
-.texto{
-  margin-top: 20px;
-  margin-left: 20px;
-  color: #000;
-  width: 50%;
-  height: 30vh;
-  background-color: #f4d738;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
+.card {
+  margin: 5% auto;
+  width: 90%; 
+  max-width: 400px; 
+  background-color: #fff;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   border-radius: 20px;
-  border: solid 3px #121212;
+  border: solid 4px #121212;
+  box-shadow: 5px 5px #121212;
+  overflow: hidden; 
+}
 
+.card > img {
+  width: 100%; 
+  height: auto; 
+  border-bottom: solid 4px #121212; 
+}
+
+.texto {
+  padding: 20px;
+  color: #000;
+  text-align: center;
+  width: 100%; 
+}
+
+
+@media (max-width: 768px) {
+  .card {
+    width: 95%; 
+    max-width: 100%; 
+  }
 }
