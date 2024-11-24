@@ -29,54 +29,20 @@ button:hover{
 
 */
 
-.marquee {
-	margin: 0 auto;
-	white-space: nowrap;
-	overflow: hidden;
-	position: fixed;
-	bottom: 0;
-	left: 0;
-	padding: 0.5em;
-	background: #f4d738;
-  border: solid 3px #121212;
-  color: #000;
-	right: 0;
-}
-
-/*
-    coisinho final com texto a passar 
-
-*/
-.marquee > span {
-  font-size: 15px;
-	display: inline-block;
-	padding-left: 100%;
-	animation: marquee 20s linear infinite;
-}
-
-.marquee span span {
-	padding-left: 1em;
-	padding-right: 2em;
-}
-
-@keyframes marquee {
-  0% {
-    transform: translate(0, 0);
-  }
-  100% {
-    transform: translate(-100%, 0);
-  }
-}
 
 .horizontal{
-  justify-content: center;
-  flex-direction: row;
+  width: 100%;
+  height: auto;
+  flex-wrap: wrap; 
+  gap: 20px;
+  display: flex;
+  align-items: center;
 }
 
 .card {
   margin: 5% auto;
   width: 90%; 
-  max-width: 400px; 
+  max-width: 500px; 
   background-color: #fff;
   display: flex;
   flex-direction: column;
@@ -108,3 +74,15 @@ button:hover{
     max-width: 100%; 
   }
 }
+
+@media (min-height: 768px) {
+  .horizontal{
+    flex-direction: column; 
+    align-items: center; 
+  }
+
+  .card {
+    max-width: 100%;
+  }
+}
+
