@@ -22,25 +22,29 @@
         </nav>
     </div>
         <div class="horizontal">
-            <div class="card">
-                <img src="/tema do sit.png">
+            
+            <div class="info-card">
                 <div class="texto">
-                    <h1>teste</h1>
-                    <h2>teste 2</h2>
-                    <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium consectetur debitis doloremque hic laboriosam iusto maxime odit omnis esse repellendus eum eligendi cupiditate ab ipsa tenetur dolore autem, at repudiandae.</span>
-                </div>             
+                    <h2>Título da Seção 1</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
+                </div>
+                <div class="imagem">
+                    <img src="/tema do sit.png" alt="Imagem Exemplo 1">
+                </div>
             </div>
-        
-            <div class="card">
-                <img src="/tema do sit.png">
+  
+
+            <div class="info-card">
+                <div class="imagem">
+                    <img src="/5euros.jpg" alt="Imagem Exemplo 2">
+                </div>
                 <div class="texto">
-                <h1>teste</h1>
-                <h2>teste 2</h2>
-                <span>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium consectetur debitis doloremque hic laboriosam iusto maxime odit omnis esse repellendus eum eligendi cupiditate ab ipsa tenetur dolore autem, at repudiandae.</span>
-            </div>  
-                       
-        </div> 
+                    <h2>Título da Seção 2</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
+                </div>
+            </div>
+    </div>
+
 
         </div>
     </div>
@@ -74,7 +78,7 @@
         </div>
     
         <div class="final_pagina-fim">
-            <p>&copy; 2023 Drill Miner | Todos os direitos reservados.</p>
+            <p>&copy; 2024 Drill Miner | Todos os direitos reservados.</p>
         </div>
     </footer>
 
