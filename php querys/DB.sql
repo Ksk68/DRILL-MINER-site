@@ -10,10 +10,17 @@ CREATE TABLE IF NOT EXISTS user(
     tipo_de_estatuto ENUM('admin', 'mod', 'user') NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS likes(
+	likes_id INT PRIMARY KEY AUTO_INCREMENT,
+	quantidade INT
+);
+
 CREATE TABLE IF NOT EXISTS review(
     review_id INT PRIMARY KEY AUTO_INCREMENT,
     mensagem VARCHAR(400) NOT NULL,
     user_id INT,
+    likes_id INT,
+    FOREIGN KEY (likes_id) REFERENCES likes(likes_id),
     FOREIGN KEY (user_id) REFERENCES user(user_id)
 );
 
@@ -22,21 +29,11 @@ CREATE TABLE IF NOT EXISTS resposta(
     mensagem VARCHAR(400) NOT NULL,
     user_id INT,
     review_id INT,
+    likes_id INT,
+    FOREIGN KEY (likes_id) REFERENCES likes(likes_id),
     FOREIGN KEY (user_id) REFERENCES user(user_id),
     FOREIGN KEY (review_id) REFERENCES review(review_id)
 );
 
-CREATE TABLE IF NOT EXISTS likes(
-	likes_id INT PRIMARY KEY AUTO_INCREMENT,
-	quantidade INT,
-    
-    user_id INT,
-    review_id INT,
-    resposta_id INT,
-    
-    FOREIGN KEY (user_id) REFERENCES user(user_id),
-    FOREIGN KEY (review_id) REFERENCES review(review_id),
-    FOREIGN KEY (resposta_id) REFERENCES resposta(resposta_id)
-);
-
- -- DROP DATABASE site;
+ DROP DATABASE site;
+ 
