@@ -1,0 +1,111 @@
+/* Estilo Neobrutalista para a página de login */
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Yuji+Mai&display=swap');
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f3f1d7f5;
+    color: #121212;
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+.login-box {
+    background-color: #f5f5f5;
+    border: 3px solid #121212;
+    box-shadow: 5px 5px 0 #121212;
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
+    width: 350px;
+}
+
+.login-box h1 {
+    font-family:'Embed code', serif;
+    -webkit-text-stroke-width: 1px; /* largura da borda */
+    -webkit-text-stroke-color: #000; /* cor da borda */
+    font-size: 40px;
+    color: #f4d738;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.login-box form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-box label {
+    text-align: left;
+    font-size: 14px;
+    color: #121212;
+    margin-bottom: 8px;
+}
+
+.login-box input {
+    padding: 10px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    border: 2px solid #121212;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 3px 3px 0 #121212;
+    transition: all 0.3s;
+}
+
+
+
+.login-box input:focus {
+    box-shadow: 6px 6px 0 #000000;
+    outline: none;
+}
+
+.login-box button {
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #000;
+    background-color: #f4d738;
+    border: 2px solid #121212;
+    border-radius: 15px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: 0.3s;
+    box-shadow: 3px 3px 0 #121212;
+}
+
+.login-box button:hover {
+    background-color: #f4d738;
+    color: #121212;
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 #121212;
+}
+
+.login-box button:active {
+    box-shadow: 2px 2px 0 #121212;
+    transform: translate(2px, 2px);
+}
+
+.login-box .signup {
+    font-size: 17px;
+    margin-top: 10px;
+}
+
+.login-box .signup a {
+    font-family:'Embed code', serif;
+    -webkit-text-stroke-width: 0.2px; /* largura da borda */
+    -webkit-text-stroke-color: #000; /* cor da borda */
+    color: #f4d738;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.login-box .signup a:hover {
+    color: #121212;
+}

@@ -13,11 +13,15 @@
         return $conexao;
     }
 
-    //verificar o login
+    // Verificar o login
     function verificar_login ($email, $pass){ 
 
-        if (empty($email) || empty($pass)) {
-            return "nada";
+        if (empty($email) && empty($pass)) {
+            return "N";
+        }else if (empty($email) ){
+            return "NE";
+        }else if (empty($pass)) {
+            return "NP";
         }
 
         $stmt = conexao()->prepare("SELECT password FROM user WHERE email = ?");
@@ -27,15 +31,24 @@
         if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
             if (password_verify($pass, $row['password'])) {
-                return "login";
+                return "L";
             } else {
-                return "senha";
+                return "P";
             }
         } else {
-            return "email";
-        }
+            return "E";
+        } 
     }
 
+    /*
+        NE -> Email sem nada
+        NP -> Password sem nada
+        N -> Nada no email e na password
+        L -> Login bem feito
+        P -> password incorreta
+        E -> email não existe
+    */ 
+    
 
 
 ?>

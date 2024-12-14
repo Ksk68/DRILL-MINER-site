@@ -1,4 +1,11 @@
+
+
 body {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     margin: 0;
     background-color: #f5f5f5;
     font-family: Arial, sans-serif;
@@ -12,18 +19,18 @@ body {
 }
 
 .menu {
-    width: 100%;
-    height: 15vh;
+    margin-top: 15px;
+    width: 95%;
+    height: 10vh;
     background-color: #f4d738;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-bottom-left-radius: 50px;
-    border-bottom-right-radius: 50px;
+    border-radius: 35px;
     
-    border: solid 3px #121212;
+    
+    border: solid 2px #121212;
+    box-shadow: 4px 4px 0 #121212;
 }
 
 nav {
@@ -34,19 +41,10 @@ nav {
     padding: 0 20px;
 }
 
-nav .logo {
-    width: 24%;
-    font-family: "Amatic SC", sans-serif;
-    font-size: 45px;
-    color: #fff;
-    font-weight: bold;
-    text-transform: uppercase;
-    background-color: #f5f5f5;
-    color: #121212;
-    border-radius: 15px;
-    border: solid 2px #121212;
-    box-shadow: 3px 3px 0 #121212;
-    text-align: center;
+
+nav img{
+    width: 14%;
+    height: 22vh;
 }
 
 nav ul {
@@ -97,11 +95,10 @@ nav ul li a:active {
             align-items: center;
         }
     
-        nav .logo {
-            width: 100%;
-            text-align: center;
-            margin-bottom: 10px;
-        }
+        nav img{
+          width: 23%;
+          height: 12vh;
+      }
     
         nav ul {
             margin-top: 10px;
@@ -116,6 +113,7 @@ nav ul li a:active {
             font-size: 18px; 
         }
 }
+
 /*
    cards com texto
 */
@@ -136,6 +134,8 @@ nav ul li a:active {
 
 
 .info-card .texto h2 {
+  -webkit-text-stroke-width: 1px; /* largura da borda */
+  -webkit-text-stroke-color: #000; /* cor da borda */
   font-size: 24px;
   color: #f4d738;
   margin-bottom: 10px;
@@ -174,8 +174,7 @@ nav ul li a:active {
 
 .final_pagina {
     background-color: #121212;
-    color: #f5f5f5;
-    padding: 40px 0;
+    color: #f5f5f5; 
     font-family: Arial, sans-serif;
   }
   
@@ -184,9 +183,8 @@ nav ul li a:active {
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: flex-start;
-    max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 150px;
   }
   
   .final_pagina-setor {
@@ -253,42 +251,3 @@ nav ul li a:active {
   }
 
 
-
-  .marquee {
-    margin: 0 auto;
-    white-space: nowrap;
-    overflow: hidden;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    padding: 0.5em;
-    background: #f4d738;
-    border: solid 3px #121212;
-    color: #000;
-    right: 0;
-  }
-  
-  /*
-      coisinho final com texto a passar 
-  
-  */
-  .marquee > span {
-    font-size: 15px;
-    display: inline-block;
-    padding-left: 100%;
-    animation: marquee 20s linear infinite;
-  }
-  
-  .marquee span span {
-    padding-left: 1em;
-    padding-right: 2em;
-  }
-  
-  @keyframes marquee {
-    0% {
-      transform: translate(0, 0);
-    }
-    100% {
-      transform: translate(-100%, 0);
-    }
-  }
