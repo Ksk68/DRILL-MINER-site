@@ -58,7 +58,11 @@ body {
     transition: all 0.3s;
 }
 
-
+.erro {
+    color: red;
+    font-size: 14px;
+    margin: 10px;
+}
 
 .login-box input:focus {
     box-shadow: 6px 6px 0 #000000;

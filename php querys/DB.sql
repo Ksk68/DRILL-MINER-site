@@ -35,5 +35,7 @@ CREATE TABLE IF NOT EXISTS resposta(
     FOREIGN KEY (review_id) REFERENCES review(review_id)
 );
 
- DROP DATABASE site;
+-- DROP DATABASE site;
+ 
+ 
  

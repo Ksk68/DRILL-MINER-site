@@ -1,3 +1,16 @@
+<?php
+
+    session_start();
+
+    $erro = $_SESSION['erro'] ?? '';
+    $email = $_SESSION['email'] ?? '';
+
+    // Limpar mensagens
+    unset($_SESSION['erro']);
+    unset($_SESSION['email']);
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -14,7 +27,7 @@
             <ul>
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="teste.html">Sobre</a></li>
-                <li><a href="login.html" class="active">Login</a></li>
+                <li><a href="login.php" class="active">Login</a></li>
             </ul>
         </nav>
     </div>
@@ -22,18 +35,23 @@
     <div class="login-container">
         <div class="login-box">
             <h1>Login</h1>
-            <form action="login.php" method="POST">
+            <form action="php/login_ver.php" method="POST">
 
                 <label for="email">Email</label>
-                <input type="text" name="email" placeholder="Insira seu email">
+                <input type="text" name="email" placeholder="Insira seu email" value="<?php echo htmlspecialchars($email); ?>">
                 
                 <label for="password">Senha</label>
                 <input type="password" name="password" placeholder="Insira sua senha">
 
-                 <a></a>
+                <!-- se tiver algum erro vai mostrar -->
+                <?php if (!empty($erro)): ?>
+                    <div class="erro">
+                        <?php echo htmlspecialchars($erro); ?>
+                    </div>
+                <?php endif; ?>
                 
-                <button type="submit">Entrar</button>
-                <p class="signup">Não tens uma conta? <a href="sign_in.html">Sign in</a></p>
+                <button type="submit" name="btn">Entrar</button>
+                <p class="signup">Não tens uma conta? <a href="sign_in.php">Sign in</a></p>
             </form>
         </div>
     </div>
