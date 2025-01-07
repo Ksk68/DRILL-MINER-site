@@ -1,3 +1,3 @@
 USE site;
-INSERT INTO user(Nome,Email,Password,Tipo_de_estatuto) 
+INSERT INTO user(nome,email,password,tipo_de_estatuto) 
 VALUES (?,?,?,'user');

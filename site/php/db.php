@@ -5,15 +5,15 @@
         $password = "";
         $db_name = "site";
 
-        $conexao = new mysqli($server_name,$username,$password,$db_name); //ligação a base de dados
+        $mysqli = new mysqli($server_name,$username,$password,$db_name); //ligação a base de dados
 
-        if ($conexao->connect_error) {
-            die("Erro ao conectar ao banco de dados: " . $conexao->connect_error);
+        if ($mysqli->connect_error) {
+            die("Erro ao conectar ao banco de dados: " . $mysqli->connect_error);
         }
 
-        $conexao->query("SET SESSION wait_timeout = 600"); // 10 minutos
+        $mysqli->query("SET SESSION wait_timeout = 600"); // 10 minutos
 
-        return $conexao;
+        return $mysqli;
     }
 
     // Verificar o login
@@ -27,12 +27,12 @@
             return "NP";
         }
 
-        $conexao = conexao();
+        $mysqli = conexao();
 
-        $stmt = $conexao->prepare("SELECT password FROM user WHERE email = ?");
+        $stmt = $mysqli->prepare("SELECT password FROM user WHERE email = ?");
 
         if (!$stmt) {
-            die("Erro ao preparar a consulta: " . $conexao->error);
+            die("Erro ao preparar a consulta: " . $mysqli->error);
         }
 
         $stmt->bind_param("s", $email);
@@ -40,8 +40,9 @@
         $result = $stmt->get_result();
         if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
-            if($pass == $row['password']){
-                return "L";
+            
+            if((password_verify($pass, $row['password']))){
+                return "L " . $row['password'];
             } else {
                 return "P";
             }
@@ -59,6 +60,31 @@
         E -> email não existe
     */ 
     
+    function sign_in( $nome, $email, $pass){
 
+        if (empty($email) && empty($pass) && empty($nome)) {
+            return "N";
+        }else if (empty($pass) && empty($email)){
+            return "NEP";
+        }else if (empty($email) && empty($nome)){
+            return "NNE";
+        }else if (empty($pass) && empty($nome)){
+            return "NNP";
+        }else if (empty($email) ){
+            return "NE";
+        }else if (empty($pass)){
+            return "NP";
+        }else if (empty($nome)) {
+            return "NN";
+        }
+
+        $mysqli = conexao();
+        $hashedPassword = password_hash($pass, PASSWORD_BCRYPT);
+        $stmt = $mysqli->prepare("INSERT INTO user(nome,email,password,tipo_de_estatuto) VALUES (?,?,?,'user')");
+        $stmt->bind_param("sss", $nome , $email, $hashedPassword);
+        $stmt->execute();
+
+        return "S";
+    }
 
 ?>
