@@ -19,8 +19,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign_in - Drill Miner</title>
-    <link rel="stylesheet" href="/site/css/Tema.css">
-    <link rel="stylesheet" href="/site/css/login_sign.css">
+    <link rel="stylesheet" href="css/Tema.css">
+    <link rel="stylesheet" href="css/login_sign.css">
 </head>
 <body>
     <div class="menu">

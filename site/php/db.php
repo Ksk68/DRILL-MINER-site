@@ -1,4 +1,7 @@
 <?php   
+
+    include_once 'start_session.php';
+
     function conexao(){
         $server_name = "127.0.0.1";
         $username = "root";
@@ -40,9 +43,9 @@
         $result = $stmt->get_result();
         if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
-            
-            if((password_verify($pass, $row['password']))){
-                return "L " . $row['password'];
+
+            if(password_verify($pass, $row['password'])){
+                return "L";
             } else {
                 return "P";
             }
@@ -79,7 +82,7 @@
         }
 
         $mysqli = conexao();
-        $hashedPassword = password_hash($pass, PASSWORD_BCRYPT);
+        $hashedPassword = password_hash($pass, null);
         $stmt = $mysqli->prepare("INSERT INTO user(nome,email,password,tipo_de_estatuto) VALUES (?,?,?,'user')");
         $stmt->bind_param("sss", $nome , $email, $hashedPassword);
         $stmt->execute();

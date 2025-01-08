@@ -1,7 +1,11 @@
 <?php
-    session_start();
+    
+    include_once 'start_session.php';
+    include_once 'db.php';
 
-    include 'db.php';
+    $nome = '';
+    $email = '';
+    $pass = '';
 
     if(isset($_POST['btn'])){
         $nome = $_POST['nome'] ?? ''; //pegar o nome que o user pos no input
@@ -28,6 +32,7 @@
     }else if($user == "NN"){
         $_SESSION['erro']  = "Nome sem nada";
     }else if($user == "S"){
+        //$_SESSION['erro'] = $pass;
         header("Location: ../index.html");
         exit();
     }

@@ -1,6 +1,6 @@
 <?php
-    include 'db.php';
-    session_start();
+    include_once 'db.php';
+    include_once 'start_session.php';
 
     if(isset($_POST['btn'])){
         $email = $_POST['email'] ?? ''; //pegar o email que o user pos no input
@@ -24,7 +24,6 @@
         $_SESSION['erro']  = "Email não existe";
     }
 
-    $_SESSION['email'] = $email; 
     header("Location: ../login.php");
     exit();
 ?>

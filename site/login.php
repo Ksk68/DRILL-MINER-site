@@ -1,6 +1,6 @@
 <?php
 
-    session_start();
+    include_once './php/start_session.php';
 
     $erro = $_SESSION['erro'] ?? '';
     $email = $_SESSION['email'] ?? '';
