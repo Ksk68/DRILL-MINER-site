@@ -1,6 +1,6 @@
 <?php
 
-    session_start();
+    include_once './php/start_session.php';
 
     $nome = $_SESSION['nome'] ?? '';
     $email = $_SESSION['email'] ?? '';
@@ -25,9 +25,9 @@
 <body>
     <div class="menu">
         <nav>
-            <img src="img/logo-removebg-preview.png">
+            <img src="img/logo_final_preto.png">
             <ul>
-                <li><a href="index.html">Inicio</a></li>
+                <li><a href="index.php">Inicio</a></li>
                 <li><a href="teste.html">Sobre</a></li>
                 <li><a href="login.php" class="active">Login</a></li>
             </ul>

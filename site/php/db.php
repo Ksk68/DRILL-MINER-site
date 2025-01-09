@@ -2,6 +2,7 @@
 
     include_once 'start_session.php';
 
+    //ligação á base de dados
     function conexao(){
         $server_name = "127.0.0.1";
         $username = "root";
@@ -21,6 +22,15 @@
 
     // Verificar o login
     function verificar_login ($email, $pass){ 
+        
+        /*
+            NE -> Email sem nada
+            NP -> Password sem nada
+            N -> Nada no email e na password
+            L -> Login bem feito
+            P -> password incorreta
+            E -> email não existe
+        */ 
 
         if (empty($email) && empty($pass)) {
             return "N";
@@ -32,7 +42,7 @@
 
         $mysqli = conexao();
 
-        $stmt = $mysqli->prepare("SELECT password FROM user WHERE email = ?");
+        $stmt = $mysqli->prepare("SELECT password,tipo_de_estatuto FROM user WHERE email = ?");
 
         if (!$stmt) {
             die("Erro ao preparar a consulta: " . $mysqli->error);
@@ -45,7 +55,12 @@
             $row = $result->fetch_assoc();
 
             if(password_verify($pass, $row['password'])){
-                return "L";
+                if ($row['tipo_de_estatuto'] == 'admin'){
+                    return 'LA';
+                }else{
+                    return 'L';
+                }
+
             } else {
                 return "P";
             }
@@ -54,16 +69,25 @@
         } 
     }
 
-    /*
-        NE -> Email sem nada
-        NP -> Password sem nada
-        N -> Nada no email e na password
-        L -> Login bem feito
-        P -> password incorreta
-        E -> email não existe
-    */ 
-    
+
+    //criar um user
     function sign_in( $nome, $email, $pass){
+
+        /*
+            NEP -> Nada no Email e na Password
+            NNE -> Nada no Nome e no Email
+            NNP -> Nada no Nome e na Password
+
+            NE -> Email sem nada
+            NP -> Password sem nada
+            NN -> Nome sem nada
+
+            JE -> Já existe esse Email
+            JN -> Já existe esse Nome
+
+            N -> Nada no email, na password e no nome
+            S -> Sign in bem feito
+        */ 
 
         if (empty($email) && empty($pass) && empty($nome)) {
             return "N";
@@ -83,11 +107,28 @@
 
         $mysqli = conexao();
         $hashedPassword = password_hash($pass, null);
+
+
         $stmt = $mysqli->prepare("INSERT INTO user(nome,email,password,tipo_de_estatuto) VALUES (?,?,?,'user')");
         $stmt->bind_param("sss", $nome , $email, $hashedPassword);
         $stmt->execute();
+        $stmt->close();
 
         return "S";
     }
+
+    function get_nome($email){
+        $mysqli = conexao();
+        $stmt = $mysqli->prepare("SELECT nome FROM user WHERE email = ?");
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $row = $result->fetch_assoc();
+
+        return $row['nome'];
+
+    }
+
+       
 
 ?>

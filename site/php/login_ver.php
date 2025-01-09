@@ -8,6 +8,7 @@
     }
 
     $verificacao = verificar_login($email, $pass); // Verificar se o email existe na base de dados e se 
+    
 
     if ($verificacao == "N"){
         $_SESSION['erro']  = "Email e password sem nada";
@@ -16,7 +17,14 @@
     }else if($verificacao == "NE"){
         $_SESSION['erro']  = "Email sem nada";
     }else if($verificacao == "L"){
-        header("Location: ../index.html");
+        header("Location: ../index.php");
+        $_SESSION['user'] = 'user';
+        $_SESSION['nome'] = get_nome($email);
+        exit();
+    }else if($verificacao == "LA"){
+        header("Location: ../index.php");
+        $_SESSION['user'] = 'admin';
+        $_SESSION['nome'] = get_nome($email);
         exit();
     }else if($verificacao == "P"){
         $_SESSION['erro']  = "Password invalida";
@@ -24,6 +32,7 @@
         $_SESSION['erro']  = "Email não existe";
     }
 
+    $_SESSION['email'] = $email; 
     header("Location: ../login.php");
     exit();
 ?>

@@ -1,3 +1,11 @@
+<?php
+
+    include_once './php/start_session.php';
+
+    $user = $_SESSION['user'] ?? '';
+    $nome = $_SESSION['nome'] ?? '';
+?>
+
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -10,14 +18,29 @@
 <body>
     <div class="menu">
         <nav>
-            <img src="img/logo-removebg-preview.png">
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="teste.html">Sobre</a></li>
-                <li><a href="login.php">Login</a></li>
-            </ul>
+            <img src="img/logo_final_preto.png" alt="Logo">
+            <div class="nav-links">
+                <ul>
+                    <li><a href="index.php">Início</a></li>
+                    <li><a href="teste.html">Sobre</a></li>
+                    <?php if ($user == ''): ?>
+                        <li><a href="login.php">Login</a></li>
+                    <?php endif; ?>
+
+                    <?php if ($user == 'user' || $user == 'admin'): ?>
+                        <li><a><?php echo "Ola " . $nome?></a></li>
+
+                        <?php if ($user == 'admin'): ?>
+                            <li><a href="admin.php">Admin</a></li>
+                        <?php endif; ?>
+
+                        <li><a href="php/logout.php">Logout</a></li>
+                    <?php endif; ?>
+                </ul>
+            </div>
         </nav>
     </div>
+    
 
 
     <div class="horizontal">
@@ -81,7 +104,6 @@
 
    
 
-    
 </body>
     
 </html>

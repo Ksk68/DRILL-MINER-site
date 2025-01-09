@@ -1,2 +1,3 @@
-USE site;
-UPDATE user SET Tipo_de_estatuto = '$estatuto' WHERE user_id = '$user_id'
+SET sql_safe_updates = 0;
+
+UPDATE user SET Tipo_de_estatuto = 'admin' WHERE nome = 'b';
