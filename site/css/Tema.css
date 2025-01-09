@@ -7,11 +7,10 @@ body {
     align-items: center;
     flex-direction: column;
     margin: 0;
-    background-color: #f5f5f5;
+    background-color: #222327;
     font-family: Arial, sans-serif;
     color: #121212;
     overflow-x: hidden;
-    background-color: #f3f1d7f5;
 }
 
 ::-webkit-scrollbar {
@@ -22,15 +21,12 @@ body {
     margin-top: 15px;
     width: 95%;
     height: 10vh;
-    background-color: #f4d738;
+    background-color: transparent;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 35px;
     
-    
-    border: solid 2px #121212;
-    box-shadow: 4px 4px 0 #121212;
 }
 
 nav {
@@ -60,26 +56,23 @@ nav ul li {
 }
 
 nav ul li a {
+    
     display: inline;    
     margin-right: 30px;
     padding: 10% 12%;
     text-align: center;
-    font-size: 22px;
+    font-size: 20px;
     text-decoration: none;
-    color: #121212;
-    background-color: #fff;
-    border: solid 2px #121212;
+    color: #fff;
+    background-color: transparent;
     transition: 0.3s;
-    box-shadow: 3px 3px 0 #121212;
-    border-radius: 15px;
+    border-radius: 13px;
     
 }
 
 
 nav ul li a:hover {
-    background-color: #121212;
-    color: #fff;
-    box-shadow: 6px 6px 0 #615617;
+    color: #f4d738;
     transform: translate(-2px, -2px);
 }
 
