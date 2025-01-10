@@ -119,7 +119,7 @@ nav ul li a:hover {
     justify-content: space-around;
     align-items: flex-start;
     margin: 0 auto;
-    padding: 0 20%;
+    padding: 0 12%;
   }
   
   .final_pagina-setor {
@@ -177,18 +177,7 @@ nav ul li a:hover {
     margin: 0;
   }
   
-  @media (max-width: 768px) {
-    .final_pagina-container {
-        flex-direction: column;
-        align-items: center;
-        padding: 0 10px;
-    }
-  
-    .final_pagina-setor {
-        text-align: center;
-        margin: 20px 0;
-    }
-  }
+ 
 
 
 

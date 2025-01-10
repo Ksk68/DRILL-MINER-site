@@ -1,2 +1,2 @@
 USE site;
-SELECT password FROM user WHERE email = ?;
+SELECT password,tipo_de_estatuto FROM user WHERE email = ?;

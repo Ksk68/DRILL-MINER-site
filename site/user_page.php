@@ -1,31 +1,46 @@
+<?php
+    include_once './php/start_session.php';
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Drill Miner</title>
+    <title>user - Drill Miner</title>
     <link rel="stylesheet" href="css/tema.css"> 
-    <link rel="stylesheet" href="css/index.css"> 
+    <link rel="stylesheet" href="css/user_page.css"> 
 </head> 
 <body>
     <div class="menu">
         <nav>
-            <img src="img/logo-removebg-preview.png">
+            <img src="img/logo_final_preto.png">
             <ul>
-                <li><a href="inicio.php">Inicio</a></li>
-                <li><a href="teste.html">Sobre</a></li>
-                <li><a href="login.php">Login</a></li>
-                <li><a href="login.php">Login</a></li>
+                <li><a href="index.php">Inicio</a></li>
             </ul>
         </nav>
     </div>
 
-
-
-     
-    
-
-
+    <div class="container">
+        <h1>Editar Perfil</h1>
+        <form method="POST" action="">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" >
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" >
+            
+            <label for="senha">Nova Senha:</label>
+            <input type="password" id="senha" name="senha">
+            
+            <button type="submit">Salvar Alterações</button>
+        </form>
+        <form method="POST" action="php/logout.php">
+            <button type="submit" class="logout">Logout</button>
+        </form>
+        
+    </div>
     
     <footer class="final_pagina">
         <div class="final_pagina-container">
@@ -37,10 +52,10 @@
             <div class="final_pagina-setor links">
                 <h2>Links Rápidos</h2>
                 <ul>
-                    <li><a href="index.html">Início</a></li>
-                    <li><a href="sobre.html">Sobre</a></li>
-                    <li><a href="sign_in.html">Sign in</a></li>
-                    <li><a href="login.html">Login</a></li>
+                    <li><a href="index.php">Início</a></li>
+                    <li><a href="sobre.php">Sobre</a></li>
+                    <li><a href="sign_in.php">Sign in</a></li>
+                    <li><a href="login.php">Login</a></li>
                 </ul>
             </div>
     

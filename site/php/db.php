@@ -15,7 +15,7 @@
             die("Erro ao conectar ao banco de dados: " . $mysqli->connect_error);
         }
 
-        $mysqli->query("SET SESSION wait_timeout = 600"); // 10 minutos
+        $mysqli->query("SET SESSION wait_timeout = 400"); // 5 minutos
 
         return $mysqli;
     }
@@ -107,16 +107,16 @@
 
         $mysqli = conexao();
         $hashedPassword = password_hash($pass, null);
+        $tipo = 'user';
 
-
-        $stmt = $mysqli->prepare("INSERT INTO user(nome,email,password,tipo_de_estatuto) VALUES (?,?,?,'user')");
-        $stmt->bind_param("sss", $nome , $email, $hashedPassword);
+        $stmt = $mysqli->prepare("INSERT INTO user(nome,email,password,tipo_de_estatuto) VALUES (?,?,?,?)");
+        $stmt->bind_param("sss", $nome , $email, $hashedPassword, $tipo);
         $stmt->execute();
-        $stmt->close();
-
+        
         return "S";
     }
 
+    // pegar o nome do user ou mod ou admin
     function get_nome($email){
         $mysqli = conexao();
         $stmt = $mysqli->prepare("SELECT nome FROM user WHERE email = ?");
@@ -128,6 +128,44 @@
         return $row['nome'];
 
     }
+
+    //pegar a informação para os admins
+    function get_info(){
+        $mysqli = conexao();
+
+
+        $stmt = $mysqli->prepare("SELECT COUNT(user_id) AS Q_user FROM user");
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $row = $result->fetch_assoc();
+        $Q_user = $row['Q_user'];
+        $stmt->close();
+        
+
+        $stmt = $mysqli->prepare("SELECT COUNT(user_id) AS Q_mod FROM user WHERE tipo_de_estatuto = 'mod'");
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $row = $result->fetch_assoc();
+        $Q_mod = $row['Q_mod'];
+        $stmt->close();
+
+        $stmt = $mysqli->prepare("SELECT COUNT(user_id) AS Q_admin FROM user WHERE tipo_de_estatuto = 'admin'");
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $row = $result->fetch_assoc();
+        $Q_admin = $row['Q_admin'];
+        $stmt->close();
+
+        $stmt = $mysqli->prepare("SELECT COUNT(review_id) AS Q_feedback FROM review");
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $row = $result->fetch_assoc();
+        $Q_feedback = $row['Q_feedback'];
+        $stmt->close();
+        
+        return $Q_user . " " . $Q_mod . " " . $Q_admin . " " . $Q_feedback;
+    }
+
 
        
 

@@ -19,7 +19,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign_in - Drill Miner</title>
-    <link rel="stylesheet" href="css/Tema.css">
+    <link rel="stylesheet" href="css/tema.css">
     <link rel="stylesheet" href="css/login_sign.css">
 </head>
 <body>
@@ -40,13 +40,13 @@
             <form action="php/criar_user.php" method="POST">
 
                 <label for="nome">Nome</label>
-                <input type="text" name="nome" placeholder="Insira seu nome" value="<?php echo htmlspecialchars($nome); ?>">
+                <input type="text" name="nome" placeholder="Insira seu nome" value="<?php echo htmlspecialchars($nome); ?>" required>
 
                 <label for="email">Email</label>
-                <input type="text" name="email" placeholder="Insira seu email" value="<?php echo htmlspecialchars($email); ?>">
+                <input type="text" name="email" placeholder="Insira seu email" value="<?php echo htmlspecialchars($email); ?>" required>
 
                 <label for="password">Senha</label>
-                <input type="password" name="password" placeholder="Insira sua senha">
+                <input type="password" name="password" placeholder="Insira sua senha" required>
                 
                 <!-- se tiver algum erro vai mostrar -->
                 <?php if (!empty($erro)): ?>
@@ -71,10 +71,10 @@
             <div class="final_pagina-setor links">
                 <h2>Links Rápidos</h2>
                 <ul>
-                    <li><a href="index.html">Início</a></li>
-                    <li><a href="sobre.html">Sobre</a></li>
-                    <li><a href="sign_in.html">Sign in</a></li>
-                    <li><a href="login.html">Login</a></li>
+                    <li><a href="index.php">Início</a></li>
+                    <li><a href="sobre.php">Sobre</a></li>
+                    <li><a href="sign_in.php">Sign in</a></li>
+                    <li><a href="login.php">Login</a></li>
                 </ul>
             </div>
     

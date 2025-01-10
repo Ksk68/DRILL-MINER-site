@@ -35,6 +35,13 @@ CREATE TABLE IF NOT EXISTS resposta(
     FOREIGN KEY (review_id) REFERENCES review(review_id)
 );
 
+CREATE TABLE IF NOT EXISTS texto(
+		texto_id INT PRIMARY KEY AUTO_INCREMENT,
+        mensagem VARCHAR(500),
+        img LONGBLOB
+);
+
+
 -- DROP DATABASE site;
  
  

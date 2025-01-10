@@ -12,7 +12,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Drill Miner</title>
-    <link rel="stylesheet" href="css/Tema.css"> 
+    <link rel="stylesheet" href="css/tema.css"> 
     <link rel="stylesheet" href="css/index.css"> 
 </head> 
 <body>
@@ -28,13 +28,12 @@
                     <?php endif; ?>
 
                     <?php if ($user == 'user' || $user == 'admin'): ?>
-                        <li><a><?php echo "Ola " . $nome?></a></li>
 
                         <?php if ($user == 'admin'): ?>
                             <li><a href="admin.php">Admin</a></li>
                         <?php endif; ?>
 
-                        <li><a href="php/logout.php">Logout</a></li>
+                        <li><a href="user_page.php"><?php echo $nome?></a></li>
                     <?php endif; ?>
                 </ul>
             </div>
@@ -83,10 +82,10 @@
             <div class="final_pagina-setor links">
                 <h2>Links Rápidos</h2>
                 <ul>
-                    <li><a href="index.html">Início</a></li>
-                    <li><a href="sobre.html">Sobre</a></li>
-                    <li><a href="sign_in.html">Sign in</a></li>
-                    <li><a href="login.html">Login</a></li>
+                    <li><a href="index.php">Início</a></li>
+                    <li><a href="sobre.php">Sobre</a></li>
+                    <li><a href="sign_in.php">Sign in</a></li>
+                    <li><a href="login.php">Login</a></li>
                 </ul>
             </div>
     
