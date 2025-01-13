@@ -1,5 +1,6 @@
 <?php
     include_once './php/start_session.php';
+    include_once './php/db.php';
 
 ?>
 
@@ -18,6 +19,7 @@
             <img src="img/logo_final_preto.png">
             <ul>
                 <li><a href="index.php">Inicio</a></li>
+                <li><a href="sobre.php">Sobre</a></li>
             </ul>
         </nav>
     </div>
@@ -26,7 +28,7 @@
         <h1>Editar Perfil</h1>
         <form method="POST" action="">
             <label for="nome">Nome:</label>
-            <input type="text" id="nome" name="nome" >
+            <input type="text" id="nome" name="nome"  value="<?php echo $_SESSION['nome'] ?>">
             
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" >

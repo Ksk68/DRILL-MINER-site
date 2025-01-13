@@ -13,7 +13,7 @@
     $Q_admin = $info[2];
     $Q_feedback = $info[3];
 
- 
+    $nome = $_SESSION['nome'];
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +31,7 @@
             <img src="img/logo_final_preto.png">
             <ul>
                 <li><a href="index.php">Inicio</a></li>
-                <li><a href="php/logout.php">Logout</a></li>
+                <li><a href="user_page.php"><?php echo $nome?></a></li>
             </ul>
         </nav>
     </div>
@@ -56,7 +56,7 @@
                 <p>Total: <?php echo $Q_feedback;?></p>
             </div>
         </div>
-        <div class="links-gerenciamento">
+        <div class="links_adm">
             <h2>HUB</h2>
             <ul>
                 <li><a href="mod_user.php">Modificar Users</a></li>

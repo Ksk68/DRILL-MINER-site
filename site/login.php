@@ -51,6 +51,7 @@
                 <?php endif; ?>
                 
                 <button type="submit" name="btn">Entrar</button>
+                <p class="signup">Não te lembras da password? <a href="nova_password.php">Esqueci-me da password</a></p>
                 <p class="signup">Não tens uma conta? <a href="sign_in.php">Sign in</a></p>
             </form>
         </div>
