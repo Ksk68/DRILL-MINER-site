@@ -6,14 +6,11 @@
         header("Location: ../index.php");
     }
 
-    $info = explode(' ',get_info());
-
-    $Q_users = $info[0];
-    $Q_mods = $info[1];
-    $Q_admin = $info[2];
-    $Q_feedback = $info[3];
+    $info = get_info();
 
     $nome = $_SESSION['nome'];
+
+    
 ?>
 
 <!DOCTYPE html>
@@ -39,22 +36,16 @@
     <div class="dashboard">
         <h1>Bem-vindo, ADM</h1>
         <div class="cards">
-            <div class="card">
-                <h2>Users</h2>
-                <p>Total: <?php echo $Q_users; ?></p>
-            </div>
-            <div class="card">
-                <h2>Mods</h2>
-                <p>Total: <?php echo $Q_mods; ?></p>
-            </div>
-            <div class="card">
-                <h2>Admins</h2>
-                <p>Total: <?php echo $Q_admin;?></p>
-            </div>
-            <div class="card">
-                <h2>Feedback</h2>
-                <p>Total: <?php echo $Q_feedback;?></p>
-            </div>
+            <?php if (!empty($info)): ?>
+                <?php foreach ($info as $info): ?>
+                    <div class="card">
+                        <h2><?php echo htmlspecialchars($info['nome']);?></h2>
+                        <p>Total: <?php echo htmlspecialchars($info['quantidade']); ?></p>
+                    </div>
+                <?php endforeach; ?>
+            <?php $i = 0; endif; ?>
+        
+            
         </div>
         <div class="links_adm">
             <h2>HUB</h2>

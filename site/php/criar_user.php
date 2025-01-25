@@ -6,6 +6,7 @@
     $nome = '';
     $email = '';
     $pass = '';
+    $user = '';
 
     if(isset($_POST['btn'])){
         $nome = $_POST['nome'] ?? ''; //pegar o nome que o user pos no input
@@ -13,7 +14,17 @@
         $pass = $_POST['password']; //pegar a password que o user pos no input
     }
 
-    $user = sign_in($nome,$email, $pass);
+    
+    if(strlen($pass) < 8 && strlen($nome) < 4){
+        $_SESSION['erro']  = ' Password deve conter mais de 8 caracteres e o Nome deve conter mais de 4 caracteres';
+    }else if(strlen($pass) < 8){
+        $_SESSION['erro']  = "Password deve conter mais de 8 caracteres";
+    }else if(strlen($nome) < 4){
+        $_SESSION['erro']  = "Nome deve conter mais de 4 caracteres";
+    }else{
+        $user = sign_in($nome,$email, $pass);
+    }
+
 
     
 

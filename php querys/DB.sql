@@ -5,9 +5,10 @@ USE site;
 CREATE TABLE IF NOT EXISTS user(
     user_id INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(20) NOT NULL,
-    email VARCHAR(45) NOT NULL,
+    email VARCHAR(200) NOT NULL,
     password VARCHAR(255) NOT NULL,
-    tipo_de_estatuto ENUM('admin', 'mod', 'user') NOT NULL
+    tipo_de_estatuto ENUM('admin', 'mod', 'user') NOT NULL,
+    receber_email BOOL NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS likes(

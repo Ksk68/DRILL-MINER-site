@@ -33,10 +33,10 @@
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" >
             
-            <label for="senha">Nova Senha:</label>
+            <label for="senha">Nova Password:</label>
             <input type="password" id="senha" name="senha">
             
-            <button type="submit">Salvar Alterações</button>
+            <button type="submit">Editar as Alterações</button>
         </form>
         <form method="POST" action="php/logout.php">
             <button type="submit" class="logout">Logout</button>

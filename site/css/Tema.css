@@ -7,7 +7,7 @@ body {
     align-items: center;
     flex-direction: column;
     margin: 0;
-    background-color: #222327;
+    background-color:   #222327;
     font-family: Arial, sans-serif;
     color: #121212;
     overflow-x: hidden;
@@ -39,8 +39,8 @@ nav {
 
 
 nav img{
-    width: 9%;
-    height: 12vh;
+    width: 15%;
+    height: 17vh;
 }
 
 nav ul {

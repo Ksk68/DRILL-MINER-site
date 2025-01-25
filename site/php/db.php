@@ -110,7 +110,7 @@
         $tipo = 'user';
 
         $stmt = $mysqli->prepare("INSERT INTO user(nome,email,password,tipo_de_estatuto) VALUES (?,?,?,?)");
-        $stmt->bind_param("sss", $nome , $email, $hashedPassword, $tipo);
+        $stmt->bind_param("ssss", $nome , $email, $hashedPassword, $tipo);
         $stmt->execute();
         
         return "S";
@@ -132,38 +132,36 @@
     //pegar a informação para os admins
     function get_info(){
         $mysqli = conexao();
-
-
-        $stmt = $mysqli->prepare("SELECT COUNT(user_id) AS Q_user FROM user");
-        $stmt->execute();
-        $result = $stmt->get_result();
-        $row = $result->fetch_assoc();
-        $Q_user = $row['Q_user'];
-        $stmt->close();
         
+        //para adicionar mais querys é so adicionar uma linha a variavel $query
+        $query = [
+            ['query' => "SELECT COUNT(user_id) AS Q_user FROM user", 'linha' => 'user' ],
+            ['query' => 'SELECT COUNT(user_id) AS Q_mod FROM user WHERE tipo_de_estatuto ','linha' => 'mod' ],
+            ['query' => 'SELECT COUNT(user_id) AS Q_admin FROM user WHERE tipo_de_estatuto','linha' => 'admin' ],
+            ['query' => 'SELECT COUNT(review_id) AS Q_feedback FROM review', 'linha' => 'feedback' ],
+            ['query' => 'SELECT COUNT(texto_id) AS Q_texto FROM texto', 'linha' => 'texto' ]
+        ];
 
-        $stmt = $mysqli->prepare("SELECT COUNT(user_id) AS Q_mod FROM user WHERE tipo_de_estatuto = 'mod'");
-        $stmt->execute();
-        $result = $stmt->get_result();
-        $row = $result->fetch_assoc();
-        $Q_mod = $row['Q_mod'];
-        $stmt->close();
+        $i = 0;
 
-        $stmt = $mysqli->prepare("SELECT COUNT(user_id) AS Q_admin FROM user WHERE tipo_de_estatuto = 'admin'");
-        $stmt->execute();
-        $result = $stmt->get_result();
-        $row = $result->fetch_assoc();
-        $Q_admin = $row['Q_admin'];
-        $stmt->close();
-
-        $stmt = $mysqli->prepare("SELECT COUNT(review_id) AS Q_feedback FROM review");
-        $stmt->execute();
-        $result = $stmt->get_result();
-        $row = $result->fetch_assoc();
-        $Q_feedback = $row['Q_feedback'];
-        $stmt->close();
+        foreach ($query as $query){
+            $stmt = $mysqli->prepare($query['query']);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $row = $result->fetch_assoc();
+            $quantidade = $row['Q_' . $query['linha']];
+            $i++;
         
-        return $Q_user . " " . $Q_mod . " " . $Q_admin . " " . $Q_feedback;
+            $info[] = [
+                'nome' => $query['linha'], 
+                'quantidade' => $quantidade
+            ];
+            
+
+            $stmt->close();
+        } 
+        
+        return $info;
     }
 
 

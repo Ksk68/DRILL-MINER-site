@@ -5,7 +5,6 @@
     $erro = $_SESSION['erro'] ?? '';
     $email = $_SESSION['email'] ?? '';
 
-    // Limpar mensagens
     unset($_SESSION['erro']);
     unset($_SESSION['email']);
 
@@ -38,12 +37,11 @@
             <form action="php/login_ver.php" method="POST">
 
                 <label for="email">Email</label>
-                <input type="text" name="email" placeholder="Insira seu email" value="<?php echo htmlspecialchars($email); ?>" required>
+                <input type="text" name="email" placeholder="Insira o seu email" value="<?php echo htmlspecialchars($email); ?>" required>
                 
-                <label for="password">Senha</label>
-                <input type="password" name="password" placeholder="Insira sua senha" required>
+                <label for="password">Password</label>
+                <input type="password" name="password" placeholder="Insira a sua password" required>
 
-                <!-- se tiver algum erro vai mostrar -->
                 <?php if (!empty($erro)): ?>
                     <div class="erro">
                         <?php echo htmlspecialchars($erro); ?>

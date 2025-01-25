@@ -6,7 +6,6 @@
     $email = $_SESSION['email'] ?? '';
     $erro = $_SESSION['erro'] ?? '';
 
-    // Limpar mensagens
     unset($_SESSION['nome']);
     unset($_SESSION['email']);
     unset($_SESSION['erro']);
@@ -38,25 +37,25 @@
         <div class="login-box">
             <h1>Sign in</h1>
             <form action="php/criar_user.php" method="POST">
+                    
+                    <label for="nome">Nome</label>
+                    <input type="text" name="nome" placeholder="Insira o seu nome" value="<?php echo htmlspecialchars($nome); ?>" required>
 
-                <label for="nome">Nome</label>
-                <input type="text" name="nome" placeholder="Insira seu nome" value="<?php echo htmlspecialchars($nome); ?>" required>
+                    <label for="email">Email</label>
+                    <input type="text" name="email" placeholder="Insira o seu email" value="<?php echo htmlspecialchars($email); ?>" required>
 
-                <label for="email">Email</label>
-                <input type="text" name="email" placeholder="Insira seu email" value="<?php echo htmlspecialchars($email); ?>" required>
+                    <label for="password">Password</label>
+                    <input type="password" name="password" placeholder="Insira a sua password" required>
 
-                <label for="password">Senha</label>
-                <input type="password" name="password" placeholder="Insira sua senha" required>
-                
-                <!-- se tiver algum erro vai mostrar -->
-                <?php if (!empty($erro)): ?>
-                    <div class="erro">
-                        <?php echo htmlspecialchars($erro); ?>
-                    </div>
-                <?php endif; ?>
+                    <?php if (!empty($erro)): ?>
+                        <div class="erro">
+                            <?php echo htmlspecialchars($erro); ?>
+                        </div>
+                    <?php endif; ?>
 
-                <button type="submit" name="btn" >Entrar</button>
-                <p class="signup">Já tens conta? <a href="login.php">Login</a></p>
+                    <button type="submit" name="btn" >Criar conta</button>
+                    <p class="signup">Já tens conta? <a href="login.php">Login</a></p>
+             
             </form>
         </div>
     </div>

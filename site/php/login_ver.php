@@ -3,8 +3,8 @@
     include_once 'start_session.php';
 
     if(isset($_POST['btn'])){
-        $email = $_POST['email'] ?? ''; //pegar o email que o user pos no input
-        $pass = $_POST['password']; //pegar a password que o user pos no input
+        $email = $_POST['email'] ?? ''; 
+        $pass = $_POST['password']; 
     }
 
     $verificacao = verificar_login($email, $pass); // Verificar se o email existe na base de dados e se 
