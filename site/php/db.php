@@ -164,6 +164,18 @@
         return $info;
     }
 
+    function get_texts($tipo){
+        if($tipo == 'index'){
+            
+        }else if ($tipo == 'sobre'){
+
+        }else if ($tipo == 'rodape'){
+
+
+        }
+
+    }
+
 
        
 

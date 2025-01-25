@@ -1,13 +1,17 @@
 <?php
 
     include_once './php/start_session.php';
+    include_once './php/db.php';
 
     $user = $_SESSION['user'] ?? '';
     $nome = $_SESSION['nome'] ?? '';
+
+    $index = get_texts('index');
+    $_SESSION['rodape'] = get_texts('rodape');
 ?>
 
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt">    
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -44,6 +48,8 @@
 
     <div class="horizontal">
             
+
+
         <div class="info-card">
             <div class="texto">
                 <h2>Título da Seção 1</h2>
