@@ -22,7 +22,7 @@
 <body>
     <div class="menu">
         <nav>
-            <img src="img/logo_final_preto.png" alt="Logo">
+            <img src="img/logo.png" alt="Logo">
             <div class="nav-links">
                 <ul>
                     <li><a href="index.php">Início</a></li>
@@ -42,8 +42,10 @@
                 </ul>
             </div>
         </nav>
+        
     </div>
     
+    <div class="linha"></div>
 
 
     <div class="horizontal">

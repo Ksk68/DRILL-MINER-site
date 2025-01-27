@@ -24,7 +24,7 @@
 <body>
     <div class="menu">
         <nav>
-            <img src="img/logo_final_preto.png">
+            <img src="img/logo.png">
             <ul>
                 <li><a href="index.php">Inicio</a></li>
                 <li><a href="teste.html">Sobre</a></li>
