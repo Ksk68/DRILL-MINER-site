@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS resposta(
 );
 
 CREATE TABLE IF NOT EXISTS texto(
-	texto_id INT PRIMARY KEY,
+	texto_id INT PRIMARY KEY,		
 	titulo VARCHAR(40) NOT NULL,
 	mensagem VARCHAR(500),
 	img LONGBLOB
